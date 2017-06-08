@@ -10,7 +10,11 @@ import SongList from './components/SongList';
 import SongCreate from './components/SongCreate';
 import SongDetail from './components/SongDetail';
 
-const client = new ApolloClient({});
+const client = new ApolloClient({
+  dataIdFromObject: o => o.id
+  // only works if every piece of data in app has a unique id
+  // and queries & mutations return ids
+});
 
 const Root = () => {
   return (
